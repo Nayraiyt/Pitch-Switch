@@ -22,11 +22,11 @@
 }
 /* Title Style*/
 .title-box{
-    width: 100vw;
-    height: 60vh;
+    height: 87.5vh;
     display: grid;
     grid-template-rows: 3fr 4fr 2fr;
     place-items: center;
+    background-color: var(--navy);
 }
 .title-graphic{
     width: 100vw;
@@ -48,10 +48,12 @@
     width: 100%;
     object-fit: contain;
 }
-.acme-header {
+
+.acme-text {
   font-family: "Acme", sans-serif;
   font-weight: 400;
   font-style: bold;
+  color: var(--yellow);
 }
 /* Buttons Styling*/
 .buttons-box{
@@ -68,7 +70,7 @@
 .button{
     border: none;
     background-color: var(--navy);
-    color: var(--green-light);
+    color: var(--yellow);
     padding: 12px 12px;
     border-radius: 6px;
     transition: background-color 0.3s, transform 0.3s;
@@ -81,7 +83,7 @@
 .button:active{
     transform: translateY(0px)
 }
-.acme-button, .acme-text{
+.acme-button{
   font-family: "Acme", sans-serif;
   font-weight: 400;
   font-style: normal;
