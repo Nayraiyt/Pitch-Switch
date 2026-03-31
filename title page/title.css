@@ -1,3 +1,13 @@
+:root{
+    --navy: #2A262B;
+    --dark-navy: #1e1c1e;
+    --red: #E84A5F;
+    --orange: #FF8473;
+    --yellow: #feecab;
+    --green: #99B898;
+    --green-light: #cee1ce;
+}
+
 .body{
     width: 100vw;
     height: 100vh;
@@ -10,18 +20,7 @@
     grid-template-columns: 1fr 4fr 1fr;
     place-items: center;
 }
-.buttons-box{
-    width: 100vw;
-    height: 12.5vh;
-    display: grid;
-    grid-template-columns: 1fr 2fr 2fr 2fr 1fr;
-    place-items: center;
-}
-.buttons{
-    display: grid;
-    place-items: center;
-}
-
+/* Title Style*/
 .title-box{
     width: 100vw;
     height: 60vh;
@@ -48,4 +47,42 @@
     height: clamp(100px, 10vh, 160px);
     width: 100%;
     object-fit: contain;
+}
+.acme-header {
+  font-family: "Acme", sans-serif;
+  font-weight: 400;
+  font-style: bold;
+}
+/* Buttons Styling*/
+.buttons-box{
+    height: 12.5vh;
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 2fr 1fr;
+    place-items: center;
+    background-color: var(--green);
+}
+.buttons{
+    display: grid;
+    place-items: center;
+}
+.button{
+    border: none;
+    background-color: var(--navy);
+    color: var(--green-light);
+    padding: 12px 12px;
+    border-radius: 6px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+.button:hover{
+    background-color: var(--dark-navy);
+    color: #ffffff;
+    transform: translateY(3px);
+}
+.button:active{
+    transform: translateY(0px)
+}
+.acme-button, .acme-text{
+  font-family: "Acme", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
