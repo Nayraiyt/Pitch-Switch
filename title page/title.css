@@ -78,7 +78,7 @@
 .button:hover{
     background-color: var(--dark-navy);
     color: #ffffff;
-    transform: translateY(3px);
+    transform: translateY(-3px);
 }
 .button:active{
     transform: translateY(0px)
