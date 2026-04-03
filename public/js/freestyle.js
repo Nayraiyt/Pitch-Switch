@@ -1,51 +1,78 @@
+const baseChords = ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
 
-const notes = ['C', 'C#', 'D', 'D#', 'E', 'F', 
-               'F#', 'G', 'G#', 'A', 'A#', 'B'];
 
-function getNoteIndex(note) {
-    return notes.indexOf(note);
+function getChordIndex(chord){
+    return baseChords.indexOf(chord);
 }
 
-function getRoot(chord) {
-    if (chord.length > 1 && chord[1] === '#') {
+
+function getBaseChord(chord){
+    if (chord.length >= 2 && chord[1] === '#') {
         return chord.slice(0, 2);
     }
     return chord[0];
 }
 
-function transposeChord(chord, shift) {
-    const root = getRoot(chord);
-    const index = getNoteIndex(root);
-    if (index === -1) return chord;
 
-    let newIndex = (index + shift) % 12;
-    if (newIndex < 0) newIndex += 12;
-
-    const newRoot = notes[newIndex];
-    return chord.replace(root, newRoot);
+function getDeltaKey(startKey, targetKey){
+    return getChordIndex(targetKey) - getChordIndex(startKey);
 }
 
+
+function transposeChord(chord, deltaKey){
+    const base = getBaseChord(chord);
+    const index = getChordIndex(base);
+
+
+    if (index === -1) return chord;
+
+
+    let newIndex = index + deltaKey;
+
+
+    while (newIndex > 11) {
+        newIndex -= 12;
+    }
+    while (newIndex < 0) {
+        newIndex += 12;
+    }
+
+
+    const newBase = baseChords[newIndex];
+
+
+    return newBase + chord.slice(base.length);
+}
+
+
 document.querySelector('.input-box').addEventListener('submit', function(e) {
-    e.preventDefault(); 
+    e.preventDefault();
+
 
     const targetKey = document.getElementById('targetKey').value.trim();
+    const startKey = document.getElementById('startKey').value.trim();
     const chordInput = document.getElementById('chordsInput').value.trim();
 
-    if (!targetKey || !chordInput) return;
 
-    const originalKey = 'C';
-    const shift = getNoteIndex(targetKey) - getNoteIndex(originalKey);
+    if (!targetKey || !startKey || !chordInput) return;
+
+
+    const delta = getDeltaKey(startKey, targetKey);
+
 
     const chords = chordInput.split(/\s+/);
-    const transposed = chords.map(chord => transposeChord(chord, shift));
+    const transposed = chords.map(chord => transposeChord(chord, delta));
+
 
     const outputBox = document.getElementById('outputBox');
-    outputBox.innerHTML = ''; // clear previous output
+    outputBox.innerHTML = '';
+
 
     const keyDiv = document.createElement('div');
     keyDiv.className = 'target-key-output';
     keyDiv.textContent = `Target Key: ${targetKey}`;
     outputBox.appendChild(keyDiv);
+
 
     transposed.forEach((chord, i) => {
         const chordDiv = document.createElement('div');
@@ -54,3 +81,6 @@ document.querySelector('.input-box').addEventListener('submit', function(e) {
         outputBox.appendChild(chordDiv);
     });
 });
+
+
+
