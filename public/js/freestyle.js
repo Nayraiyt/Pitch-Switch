@@ -15,6 +15,7 @@ function getBaseChord(chord){
 
 
 function getDeltaKey(startKey, targetKey){
+
     return getChordIndex(targetKey) - getChordIndex(startKey);
 }
 
@@ -22,10 +23,6 @@ function getDeltaKey(startKey, targetKey){
 function transposeChord(chord, deltaKey){
     const base = getBaseChord(chord);
     const index = getChordIndex(base);
-
-
-    if (index === -1) return chord;
-
 
     let newIndex = index + deltaKey;
 
@@ -56,6 +53,9 @@ document.querySelector('.input-box').addEventListener('submit', function(e) {
 
     if (!targetKey || !startKey || !chordInput) return;
 
+    if(getChordIndex(targetKey) == -1 || getChordIndex(startKey) ==-1){
+        return;
+    }
 
     const delta = getDeltaKey(startKey, targetKey);
 
@@ -71,8 +71,7 @@ document.querySelector('.input-box').addEventListener('submit', function(e) {
     const keyDiv = document.createElement('div');
     keyDiv.className = 'target-key-output';
     keyDiv.textContent = `Target Key: ${targetKey}`;
-    outputBox.appendChild(keyDiv);
-
+    titleBox.appendChild(keyDiv);
 
     transposed.forEach((chord, i) => {
         const chordDiv = document.createElement('div');

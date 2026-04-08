@@ -21,11 +21,7 @@
                 </div>
 
                 <div class="buttons button-pages button-chordsheet">
-                    <button class="acme-button button">Chord Sheet</button>
-                </div>
-
-                <div class="buttons button-pages button-training">
-                    <button class="acme-button button">Training</button>
+                    <button class="acme-button button">Chord</button>
                 </div>
 
                 <div class="buttons button-util learn-more">
@@ -38,25 +34,29 @@
                 <div class = "input-box-left">
                     <div class = "target-key-input">
                         <label>Input the Target Key:</label>
-                        <input type="text" id="targetKey">
+                        <input class= "input-area" type="text" id="targetKey">
                     </div>
                     <div class = "start-key-input">
                         <label>Input your Start Key:</label>
-                        <input type="text" id="startKey">
+                        <input class= "input-area" type="text" id="startKey">
                     </div>
                 </div>
                 <div class = "input-box-right">
                     <div class="target-chords-input">
                         <label>Input Chord Progression (space-separated)</label>
-                        <input type="text" id="chordsInput" placeholder="e.g. C G Am F">
+                        <input class= "input-area" type="text" id="chordsInput" placeholder="e.g. C G Am F">
                     </div>
                     <div class = "submit">
-                        <input type="submit" value="Load Key">
+                        <input class= "button" type="submit" value="Load Key">
                     </div>
                 </div>
             </form>
-
-            <div class="output-box" id="outputBox"></div>
+            <div class="title-box" id="titleBox">
+                <!-- JS puts the title here -->
+            </div>
+            <div class="output-box" id="outputBox">
+                <!-- JS appends the ending kets here -->
+            </div>
         </main>
 
         <script type="module" src="./js/freestyle.js"></script>

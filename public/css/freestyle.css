@@ -23,7 +23,7 @@
 .buttons-box{
     height: 12.5vh;
     display: grid;
-    grid-template-columns: 1fr 2fr 2fr 2fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     place-items: center;
     background-color: var(--green);
 }
@@ -59,9 +59,20 @@
     display: grid;
     place-items: center;
     grid-template-columns: 1fr 2fr;
+    margin: 10px 10px;
 }
 
-.output-box div {
+.input-box-left, .input-box-right{
+    display: grid;
+    place-items: center;
+}
+
+.target-key-input, .start-key-input, .target-chords-input, .submit{
+    padding: 10px;
+    margin: 5px 0;
+}
+
+.output-box, .title-box{
     padding: 10px;
     margin: 5px 0;
     background-color: #f1f1f1;
@@ -69,4 +80,26 @@
     font-weight: bold;
     font-family: 'Acme', sans-serif;
     text-align: center;
+    display: grid;
+    padding: 10px;
+    margin: 10px 10px;
+}
+.output-box{
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.chord-output {
+    padding: 10px;
+    margin: 10px 10px;
+    background-color: var(--green);
+    color: var(--navy);
+    border-radius: 5px;
+    font-weight: bold;
+    font-family: 'Acme', sans-serif;
+    text-align: center;
+}
+
+.input-area{
+    color: var(--navy);
+    background-color: var(--green);
 }
