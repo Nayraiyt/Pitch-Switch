@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Pitch-Switch</title>
-        <link rel="stylesheet" href="./css/freestyle.css">
+        <link rel="stylesheet" href="./css/chordsheet.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
@@ -32,36 +32,31 @@
         </header>
         <main>
             <form class = "input-box" id="input-box">
-                <div class = "input-box-left">
-                    <div class = "target-key-input">
+                <div class = "input-left">
+                    <div class="input-target-key">
                         <label class="prompt-text">Input the Target Key:</label>
-                        <input class= "input-area" type="text" id="targetKey">
+                        <input class = "input-area" type="text" id="targetKey" placeholder="Target Key" />
                     </div>
-                    <div class = "start-key-input">
-                        <label class="prompt-text">Input your Start Key:</label>
-                        <input class= "input-area" type="text" id="startKey">
+                    <div class="input-start-key">
+                        <label class="prompt-text">Input the Start Key:</label>
+                        <input class = "input-area" type="text" id="startKey" placeholder="Start Key" />
                     </div>
                 </div>
-                <div class = "input-box-right">
-                    <div class="target-chords-input">
-                        <label class="prompt-text">Starting Chord Progression</label>
-                        <input class= "input-area" type="text" id="chordsInput" placeholder="ex: C G Am F">
+
+                <div class = "input-right">
+                    <div class="input-chordsheet">
+                        <label class="prompt-text">Insert Chordsheet (.txt)</label>
+                        <input class = "button prompt-text" type="file" id="txtInput" accept=".txt" />
                     </div>
-                    <div class = "submit">
-                        <input class= "button prompt-text" type="submit" value="Load Key">
-                    </div>
+                    <button class = "button prompt-text" type="submit">Transpose File</button>
                 </div>
             </form>
 
-            <div class="title-box" id="titleBox">
-                <!-- JS puts the title here -->
-            </div>
-            <div class="output-box" id="outputBox">
-                <!-- JS appends the ending kets here -->
-            </div>
+            <pre id="output"></pre>
+            
         </main>
-
-        <script type="module" src="./js/freestyle.js"></script>
+        
+        <script type="module" src="./js/chordsheet.js"></script>
     </body>
 
 </html>

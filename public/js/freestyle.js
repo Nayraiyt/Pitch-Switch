@@ -45,7 +45,6 @@ function transposeChord(chord, deltaKey){
 document.querySelector('.input-box').addEventListener('submit', function(e) {
     e.preventDefault();
 
-
     const targetKey = document.getElementById('targetKey').value.trim();
     const startKey = document.getElementById('startKey').value.trim();
     const chordInput = document.getElementById('chordsInput').value.trim();
