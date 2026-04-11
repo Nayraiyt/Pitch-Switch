@@ -71,6 +71,7 @@ document.querySelector('.input-box').addEventListener('submit', function(e) {
     const keyDiv = document.createElement('div');
     keyDiv.className = 'target-key-output';
     keyDiv.textContent = `Target Key: ${targetKey}`;
+    titleBox.innerHTML = '';
     titleBox.appendChild(keyDiv);
 
     transposed.forEach((chord, i) => {

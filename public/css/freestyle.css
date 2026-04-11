@@ -53,12 +53,18 @@
   font-style: normal;
 }
 
+.prompt-text{
+    font-family: "Acme", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
 /* Input Area */
 .input-box{
     height: 25vh;
     display: grid;
     place-items: center;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 1fr;
     margin: 10px 10px;
 }
 
@@ -68,14 +74,13 @@
 }
 
 .target-key-input, .start-key-input, .target-chords-input, .submit{
-    padding: 10px;
+    /*padding: 10px;*/
     margin: 5px 0;
 }
 
 .output-box, .title-box{
     padding: 10px;
     margin: 5px 0;
-    background-color: #f1f1f1;
     border-radius: 5px;
     font-weight: bold;
     font-family: 'Acme', sans-serif;
@@ -84,6 +89,15 @@
     padding: 10px;
     margin: 10px 10px;
 }
+.output-box{
+    background-color: #f1f1f1;
+    color: var(--navy);
+}
+.title-box{
+    background-color: var(--navy);
+    color: var(--yellow)
+}
+
 .output-box{
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
@@ -101,5 +115,5 @@
 
 .input-area{
     color: var(--navy);
-    background-color: var(--green);
+    border-radius: 5px;
 }
