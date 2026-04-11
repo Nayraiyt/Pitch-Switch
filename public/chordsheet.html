@@ -32,6 +32,12 @@
         </header>
         <main>
             <form class = "input-box" id="input-box">
+                <div class = "input-right">
+                    <div class="input-chordsheet">
+                        <label class="prompt-text" >Insert Chordsheet (file.txt): </label>
+                        <input class = "button prompt-text" type="file" id="txtInput" accept=".txt" />
+                    </div>
+                </div>
                 <div class = "input-left">
                     <div class="input-target-key">
                         <label class="prompt-text">Input the Target Key:</label>
@@ -43,16 +49,12 @@
                     </div>
                     <button class = "button prompt-text" type="submit">Transpose File</button>
                 </div>
-
-                <div class = "input-right">
-                    <div class="input-chordsheet">
-                        <label class="prompt-text">Insert Chordsheet (.txt)</label>
-                        <input class = "button prompt-text" type="file" id="txtInput" accept=".txt" />
-                    </div>
-                </div>
             </form>
-
-            <pre id="output"></pre>
+            <div class = "output-box">
+                <pre class = "gen-text" id="output">
+                    <!-- JS puts transposed sheet here -->
+                </pre>
+            </div>
 
         </main>
         

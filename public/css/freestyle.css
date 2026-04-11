@@ -74,7 +74,6 @@
 }
 
 .target-key-input, .start-key-input, .target-chords-input, .submit{
-    /*padding: 10px;*/
     margin: 5px 0;
 }
 
@@ -116,4 +115,14 @@
 .input-area{
     color: var(--navy);
     border-radius: 5px;
+}
+
+@media screen and (max-width: 500px) {
+    .input-box{
+        height: 50vh;
+        display: grid;
+        place-items: center;
+        grid-template-columns: 1fr;
+        margin: 0px 10px;
+    }
 }
