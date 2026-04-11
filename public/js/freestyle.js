@@ -1,44 +1,50 @@
 const baseChords = ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
 
-
-function getChordIndex(chord){
+function getChordIndex(chord) {
     return baseChords.indexOf(chord);
 }
 
-
-function getBaseChord(chord){
+function getBaseChord(chord) {
     if (chord.length >= 2 && chord[1] === '#') {
-        return chord.slice(0, 2);
+        return chord[0] + chord[1];
+    } else {
+        return chord[0];
     }
-    return chord[0];
 }
 
+function getDeltaKey(startKey, targetKey) {
+    const startIndex = getChordIndex(startKey);
+    const targetIndex = getChordIndex(targetKey);
 
-function getDeltaKey(startKey, targetKey){
-
-    return getChordIndex(targetKey) - getChordIndex(startKey);
+    const delta = targetIndex - startIndex;
+    return delta;
 }
 
+function transposeChord(chord, deltaKey) {
 
-function transposeChord(chord, deltaKey){
     const base = getBaseChord(chord);
+
     const index = getChordIndex(base);
+
+    if (index === -1) {
+        return chord;
+    }
 
     let newIndex = index + deltaKey;
 
-
     while (newIndex > 11) {
-        newIndex -= 12;
-    }
-    while (newIndex < 0) {
-        newIndex += 12;
+        newIndex = newIndex - 12;
     }
 
+    while (newIndex < 0) {
+        newIndex = newIndex + 12;
+    }
 
     const newBase = baseChords[newIndex];
-
-
-    return newBase + chord.slice(base.length);
+    const restOfChord = chord.slice(base.length);
+    const newChord = newBase + restOfChord;
+    
+    return newChord;
 }
 
 
